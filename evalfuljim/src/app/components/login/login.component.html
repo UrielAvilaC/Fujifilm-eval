@@ -1,0 +1,21 @@
+<div class="container-fluid  h-100 w-100 ">
+  <div class="row d-flex align-items-center h-100 w-100 justify-content-center">
+    <div class="col-md-4 col-sm-12">
+      <div class="row">
+        <div class="col-12">
+          <generic-input [control]="LoginForm.User" type="text" label="Usuario"></generic-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <generic-input [control]="LoginForm.Password" type="password" label="Password"></generic-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-end">
+          <button mdbBtn (click)="onSubmit()" type="button" color="success" mdbWavesEffect>Iniciar Sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

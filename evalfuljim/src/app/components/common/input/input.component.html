@@ -1,0 +1,13 @@
+<ng-container *ngIf="control">
+<mat-form-field class="w-100" appearance="standard">
+    <mat-label>{{label}}</mat-label>
+    <input [type]="type" matInput [formControl]="control" [errorStateMatcher]="matcher"
+           [placeholder]="placeholder">
+    <mat-error *ngIf="control.hasError('email') && !control.hasError('required') ">
+      Ingrese Un Email Valido
+    </mat-error>
+    <mat-error *ngIf="control.hasError('required')">
+      El campo es  <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+</ng-container>
