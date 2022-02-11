@@ -1,1 +1,79 @@
-<p>product works!</p>
+<div class="container w-100 mt-5">
+<div class="row">
+<div class="col-12 d-flex justify-content-center">
+  <button mdbBtn type="button" color="primary"  (click)="basicModal.show()" mdbWavesEffect>
+    <mdb-icon fas icon="plus" class="mr-1"></mdb-icon>Agregar
+  </button>
+</div>
+</div>
+  </div>
+
+
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info modal-notify modal-lg  modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right white-text" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100 white-text text-center" id="myModalLabel">Producto</h4>
+      </div>
+      <div class="modal-body">
+     <app-add #addProduct [id-record]="idRecord" *ngIf="basicModal.isShown"></app-add>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="onSubmit()" [disabled]="submmiting || details?.ProductForm?.invalid" mdbBtn color="success" class="relative waves-light" [rounded]=true mdbWavesEffect>
+          <ng-container *ngIf="!submmiting"> <mdb-icon fas icon="save" class="mr-1"></mdb-icon>Guardar</ng-container>
+          <ng-container *ngIf="submmiting"> <mdb-icon fas spin icon="spinner" class="mr-1"></mdb-icon>Guardando</ng-container></button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-search-product #searchProduct></app-search-product>
+  <button type="button" (click)="onSearch()" mdbBtn color="success" class="relative waves-light" [rounded]=true mdbWavesEffect>
+   <mdb-icon fas icon="search" class="mr-1"></mdb-icon>Buscar </button>
+
+<table mdbTable>
+  <thead class="black white-text">
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let el of rows">
+      <th scope="row"><button mdbBtn type="button" size="sm" color="info"  [rounded]="true"  (click)="editRow(el.Id)" mdbWavesEffect>
+        <mdb-icon fas icon="pencil-alt"  class="mr-1 btn-rounded"></mdb-icon>
+      </button></th>
+      <th scope="row"><button mdbBtn type="button" size="sm" color="danger"  (click)="deleteRow(el.Id)" mdbWavesEffect>
+        <mdb-icon fas icon="trash" class="mr-1 btn-rounded"></mdb-icon>
+      </button></th>
+      <th scope="row"><button mdbBtn type="button" size="sm" color="dark"  (click)="logRow(el.Id)" mdbWavesEffect>
+        <mdb-icon fas icon="book" class="mr-1 btn-rounded"></mdb-icon>
+      </button></th>
+      <th scope="row">{{el.Code}}</th>
+      <td>{{el.Name}}</td>
+      <td>{{el.Price}}</td>
+      <td>{{el.Type}}</td>
+      <td>{{el.RegistrationDate  | date:'shortDate'}}</td>
+      <td>{{el.RegistrationPerson.Name}} {{el.RegistrationPerson.LastName}}</td>
+      <td *ngIf="el.Estatus.Id ===1"><mdb-badge [success]="true">{{el.Estatus.Description}}</mdb-badge></td>
+      <td *ngIf="el.Estatus.Id ===3"><mdb-badge [danger]="true">{{el.Estatus.Description}}</mdb-badge></td>
+    </tr>
+  </tbody>
+</table>
+<div mdbModal #logModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info modal-notify modal-lg  modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right white-text" aria-label="Close" (click)="logModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100 white-text text-center" id="myModalLabel">Historial</h4>
+      </div>
+      <div class="modal-body">
+     <app-log-product #addProduct [id-record]="idRecord" *ngIf="logModal.isShown"></app-log-product>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<table mdbTable>
+  <thead class="black white-text">
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let el of rows">
+      <th scope="row">{{el.Type}}</th>
+      <td>{{el.AffectedPerson}}</td>
+      <td>{{el.AffectedDate | date:'shortDate'}}</td>
+      <td>Código: {{el.OldCode}} <br/> Nombre: {{el.OldName}} <br/> Precio : {{el.OldPrice}} <br/> Tipo: {{el.OldType}} <br/> Estatus: {{el.OldEstatus?.Description}} <br/> </td>
+      <td *ngIf="el.Type!='Add'">Código: {{el.NewCode}} <br/> Nombre: {{el.NewName}} <br/> Precio : {{el.NewPrice}} <br/> Tipo: {{el.NewType}} <br/> Estatus: {{el.NewEstatus?.Description}} <br/> </td>
+    </tr>
+  </tbody>
+</table>

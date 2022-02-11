@@ -34,6 +34,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ModuleDirective } from './directives/common/module.directive';
 import { ProductComponent } from './components/product/product.component';
+import { AddComponent } from './components/product/add/add.component';
+import { SearchProductComponent } from './components/product/search-product/search-product.component';
+import { LogProductComponent } from './components/product/log-product/log-product.component';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +47,9 @@ import { ProductComponent } from './components/product/product.component';
     NavbarComponent,
     ModuleDirective,
     ProductComponent,
+    AddComponent,
+    SearchProductComponent,
+    LogProductComponent,
   ],
   imports: [
     HttpClientModule,
@@ -77,7 +84,8 @@ import { ProductComponent } from './components/product/product.component';
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
-    MdbFormsModule
+    MdbFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

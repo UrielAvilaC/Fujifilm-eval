@@ -4,8 +4,8 @@ export interface UserViewModel {
 }
 
 export interface PersonViewModel {
-  userId: string;
-  name: string;
-  lastName: string;
-  userName: string;
+  UserId: string;
+  Name: string;
+  LastName: string;
+  UserName: string;
 }

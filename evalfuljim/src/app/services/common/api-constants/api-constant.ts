@@ -11,5 +11,8 @@ export const APIPRODUCT =
 {
     SELECT :"api/Product/Select",
     SAVE :"api/Product/Save",
-    DELETE : "api/Product/Delete"
+    DELETE : "api/Product/Delete",
+    VIEWRECORS : "api/Product/ViewRecord",
+    LOG: "api/Product/Log"
+
 }
